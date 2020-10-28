@@ -1,0 +1,48 @@
+﻿@page
+@model PremiumChannelSubscription.CustomerSubscriptions.IndexModel
+
+@{
+    ViewData["Title"] = "View Customer Subscriptions";
+}
+
+<h1>View Customer Subscriptions</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Customer Subscriptions</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerSubscription[0].Service)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerSubscription[0].Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerSubscription[0].Amount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CustomerSubscription) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service.ServiceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                <a asp-page="./Edit"  class="btn btn-primary" asp-route-id="@item.CustomerSubscriptionID">Edit</a> |
+                <a asp-page="./Details"  class="btn btn-primary" asp-route-id="@item.CustomerSubscriptionID">Details</a> |
+                <a asp-page="./Delete"  class="btn btn-primary" asp-route-id="@item.CustomerSubscriptionID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

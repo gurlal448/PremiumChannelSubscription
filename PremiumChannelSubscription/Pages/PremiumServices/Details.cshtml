@@ -1,0 +1,30 @@
+﻿@page
+@model PremiumChannelSubscription.PremiumServices.DetailsModel
+
+@{
+    ViewData["Title"] = "Premium Service Details";
+}
+
+<h1> Premium Service Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PremiumService.ServiceName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PremiumService.ServiceName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PremiumService.StartingPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PremiumService.StartingPrice)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" class="btn btn-primary" asp-route-id="@Model.PremiumService.ServiceID">Edit</a> |
+    <a asp-page="./Index">View All Premium Services</a>
+</div>

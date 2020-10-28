@@ -1,0 +1,42 @@
+﻿@page
+@model PremiumChannelSubscription.PremiumServices.IndexModel
+
+@{
+    ViewData["Title"] = "Premium Service Details";
+}
+
+<h1>View All Premium Service Details</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Add New Premium Service</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PremiumService[0].ServiceName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PremiumService[0].StartingPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.PremiumService) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartingPrice)
+            </td>
+            <td>
+                <a asp-page="./Edit" class="btn btn-primary" asp-route-id="@item.ServiceID">Edit</a> |
+                <a asp-page="./Details" class="btn btn-primary" asp-route-id="@item.ServiceID">Details</a> |
+                <a asp-page="./Delete" class="btn btn-primary" asp-route-id="@item.ServiceID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

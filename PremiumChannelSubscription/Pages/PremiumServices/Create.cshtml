@@ -1,0 +1,38 @@
+﻿@page
+@model PremiumChannelSubscription.PremiumServices.CreateModel
+
+@{
+    ViewData["Title"] = "Add New Premium Service";
+}
+
+<h1>Add New Premium Service</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PremiumService.ServiceName" class="control-label"></label>
+                <input asp-for="PremiumService.ServiceName" class="form-control" />
+                <span asp-validation-for="PremiumService.ServiceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PremiumService.StartingPrice" class="control-label"></label>
+                <input asp-for="PremiumService.StartingPrice" class="form-control" />
+                <span asp-validation-for="PremiumService.StartingPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">**View All Premium Services</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

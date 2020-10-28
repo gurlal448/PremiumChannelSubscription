@@ -1,0 +1,43 @@
+﻿@page
+@model PremiumChannelSubscription.CustomerSubscriptions.EditModel
+
+@{
+    ViewData["Title"] = "Edit Customer Subscriptions";
+}
+
+<h1>Edit Customer Subscriptions</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CustomerSubscription.CustomerSubscriptionID" />
+            <div class="form-group">
+                <label asp-for="CustomerSubscription.ServiceID" class="control-label"></label>
+                <select asp-for="CustomerSubscription.ServiceID" class="form-control" asp-items="ViewBag.ServiceID"></select>
+                <span asp-validation-for="CustomerSubscription.ServiceID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerSubscription.CustomerID" class="control-label"></label>
+                <select asp-for="CustomerSubscription.CustomerID" class="form-control" asp-items="ViewBag.CustomerID"></select>
+                <span asp-validation-for="CustomerSubscription.CustomerID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerSubscription.Amount" class="control-label"></label>
+                <input asp-for="CustomerSubscription.Amount" class="form-control" />
+                <span asp-validation-for="CustomerSubscription.Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">**View Customer Subscriptions**</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

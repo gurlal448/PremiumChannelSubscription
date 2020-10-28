@@ -1,0 +1,48 @@
+﻿@page
+@model PremiumChannelSubscription.Customers.IndexModel
+
+@{
+    ViewData["Title"] = "View All Customer";
+}
+
+<h1>View All Customer</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Add New Customer</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].ContactNo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Customer) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNo)
+            </td>
+            <td>
+                <a asp-page="./Edit" class="btn btn-primary" asp-route-id="@item.CustomerID">Edit</a> |
+                <a asp-page="./Details" class="btn btn-primary" asp-route-id="@item.CustomerID">Details</a> |
+                <a asp-page="./Delete" class="btn btn-primary" asp-route-id="@item.CustomerID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

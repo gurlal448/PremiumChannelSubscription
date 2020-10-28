@@ -1,0 +1,36 @@
+﻿@page
+@model PremiumChannelSubscription.CustomerSubscriptions.DetailsModel
+
+@{
+    ViewData["Title"] = "Customer Subscription Details";
+}
+
+<h1>Customer Subscription Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CustomerSubscription.Service)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CustomerSubscription.Service.ServiceName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CustomerSubscription.Customer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CustomerSubscription.Customer.CustomerName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CustomerSubscription.Amount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CustomerSubscription.Amount)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit"  class="btn btn-primary" asp-route-id="@Model.CustomerSubscription.CustomerSubscriptionID">Edit</a> |
+    <a asp-page="./Index">**View Customer Subscriptions</a>
+</div>

@@ -1,0 +1,40 @@
+﻿@page
+@model PremiumChannelSubscription.CustomerSubscriptions.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete Customer Subscriptions";
+}
+
+<h1>Delete Customer Subscriptions</h1>
+
+<h3>Are you sure to delete this?</h3>
+<div>
+    <h4>Customer Subscription</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CustomerSubscription.Service)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CustomerSubscription.Service.ServiceID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CustomerSubscription.Customer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CustomerSubscription.Customer.CustomerID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CustomerSubscription.Amount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CustomerSubscription.Amount)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="CustomerSubscription.CustomerSubscriptionID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">**View Customer Subscriptions**</a>
+    </form>
+</div>
